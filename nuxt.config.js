@@ -1,4 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
+const {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJECTID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APPID,
+  MEASUREMENT_ID} = process.env
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -43,6 +53,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/firebase'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -82,5 +93,16 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  env: {
+    API_KEY,
+    AUTH_DOMAIN,
+    DATABASE_URL,
+    PROJECTID,
+    STORAGE_BUCKET,
+    MESSAGING_SENDER_ID,
+    APPID,
+    MEASUREMENT_ID
   }
 }
