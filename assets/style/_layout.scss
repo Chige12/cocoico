@@ -1,0 +1,60 @@
+.v-application,
+.v-application .headline {
+  font-family: $noto-font !important;
+}
+
+html {
+  @include noto($color: $black);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+// https://youtu.be/96EbOEChoIY?t=327
+body {
+  font-feature-settings: "pkna" 1;
+  line-break: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body,
+#__nuxt,
+#__layout,
+.layout {
+  height: 100%;
+}
+
+a,
+a:link,
+a:visited {
+  color: $theme-green;
+  outline: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.125em;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+button {
+  outline: none;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  padding: 0 24px;
+}

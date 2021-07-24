@@ -1,0 +1,28 @@
+
+// color
+$white: #fff;
+$black: #1E2D24;
+$dark-gray: #334139;
+$gray: #666D69;
+$light-gray: #FAFAFA;
+
+$theme-green: #779426;
+
+//font-weight
+$font-regular: 400;
+$font-bold:    700;
+
+//animation
+$ease-out:    cubic-bezier(0.1, 0, 0, 1);
+$ease-in:     cubic-bezier(0, 0.1, 1, 0);
+$ease-in-out: cubic-bezier(0.77, 0, 0.23, 1);
+
+// fade
+.fade-enter-active,
+.fade-leave-active {
+  transition: 0.3s $ease-out;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
