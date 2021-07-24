@@ -62,6 +62,7 @@ export default {
     scss: ['~/assets/style/variables.scss', '~/assets/style/mixins.scss']
   },
 
+  // PWA setting
   manifest: {
     name: 'cocoico',
     lang: 'ja',
@@ -72,6 +73,10 @@ export default {
     'og:description': 'cocoicoサイトです',
     theme_color: '#779426',
     background_color: '#779426'
+  },
+
+  workbox: {
+    dev: true
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
