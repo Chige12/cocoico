@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
+const {API_KEY,AUTH_DOMAIN,DATABASE_URL,PROJECTID,STORAGE_BUCKET,MESSAGING_SENDER_ID,APPID} = process.env;
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -99,5 +101,16 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  env: {
+    API_KEY,
+    AUTH_DOMAIN,
+    DATABASE_URL,
+    PROJECTID,
+    STORAGE_BUCKET,
+    MESSAGING_SENDER_ID,
+    APPID,
+
   }
 }
