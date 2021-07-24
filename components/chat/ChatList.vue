@@ -10,11 +10,12 @@
               v-avatar(size="40")
                 img(src="https://cdn.vuetifyjs.com/images/john.jpg" :alt="chat.user.name")
             .comment-box.mr-4 {{chat.text}}
-    v-container
-      .comment-input-box
-        v-text-field(label="コメントする" v-model="comment")
-        v-btn(color="primary" @click="pushComment()")
-              v-icon mdi-send
+    .comment-input-box
+      v-container
+        .d-flex.align-center
+          v-text-field.mr-4(label="コメントする" auto-grow v-model="comment" @keypress.enter="pushComment()")
+          v-btn(color="primary" @click="pushComment()")
+                v-icon mdi-send
         
 </template>
 <script>
@@ -65,6 +66,7 @@ export default {
   },
   methods: {
     pushComment() {
+      if (this.comment === '') return
       const newComment = {
         type: 'comment',
         text: this.comment, 
@@ -76,13 +78,21 @@ export default {
       }
       this.chats.push(newComment)
       this.comment = ''
+      this.scrollToEnd()
+    },
+    scrollToEnd() { 
+      this.$nextTick( () => {
+        const scrollDom = document.documentElement || document.body
+        scrollDom.scrollTop = scrollDom.scrollHeight
+      })
     }
   }
 }
-</script>
+</script> 
 <style lang="scss" scoped>
 .chat-list {
   padding-top: 200px;
+  padding-bottom: 80px;
 }
 .announce {
   color: $black;
@@ -110,6 +120,10 @@ export default {
 }
 
 .comment-input-box {
-  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $white;
+  padding: 4px 0;
 }
 </style>
