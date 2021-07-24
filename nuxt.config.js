@@ -87,10 +87,6 @@ export default {
     background_color: '#779426'
   },
 
-  workbox: {
-    dev: true
-  },
-
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/vuetifyVariables.scss'],

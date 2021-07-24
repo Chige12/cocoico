@@ -1,19 +1,27 @@
 <template lang="pug">
-  .chat-list.mt-8
-    .chat-item(v-for="(chat, chatKey) in chats" :key="`chat-item-${chatKey}`")
-      .announce.mb-6(v-if="chat.type === 'announce'") 
-        span.mr-4 {{chat.time}}
-        span {{chat.text}}
-      .comment.mb-6(v-if="chat.type === 'comment'" :class="{'--me': chat.user.id === 'hoge'}")
-          .mr-4
-            v-avatar(size="40")
-              img(src="https://cdn.vuetifyjs.com/images/john.jpg" :alt="chat.user.name")
-          .comment-box.mr-4 {{chat.text}}
+  .chat-list
+    v-container
+      .chat-item(v-for="(chat, chatKey) in chats" :key="`chat-item-${chatKey}`")
+        .announce.mb-6(v-if="chat.type === 'announce'") 
+          span.mr-4 {{chat.time}}
+          span {{chat.text}}
+        .comment.mb-6(v-if="chat.type === 'comment'" :class="{'--me': chat.user.id === 'hoge'}")
+            .mr-4
+              v-avatar(size="40")
+                img(src="https://cdn.vuetifyjs.com/images/john.jpg" :alt="chat.user.name")
+            .comment-box.mr-4 {{chat.text}}
+    v-container
+      .comment-input-box
+        v-text-field(label="コメントする" v-model="comment")
+        v-btn(color="primary" @click="pushComment()")
+              v-icon mdi-send
+        
 </template>
 <script>
 export default {
   data() {
     return {
+      comment: '',
       chats: [
         {
           type: 'announce',
@@ -54,10 +62,28 @@ export default {
         },
       ]
     }
+  },
+  methods: {
+    pushComment() {
+      const newComment = {
+        type: 'comment',
+        text: this.comment, 
+        user: {
+          id: 'hoge',
+          url: '',
+          name: ''
+        }
+      }
+      this.chats.push(newComment)
+      this.comment = ''
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
+.chat-list {
+  padding-top: 200px;
+}
 .announce {
   color: $black;
   display: flex;
@@ -81,5 +107,9 @@ export default {
 .--me .comment-box {
   background: $theme-green;
   border-radius: 20px 20px 0 20px;
+}
+
+.comment-input-box {
+  display: flex;
 }
 </style>
