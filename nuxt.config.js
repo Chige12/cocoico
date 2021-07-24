@@ -57,9 +57,21 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/dotenv'],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/dotenv','@nuxtjs/pwa'],
   styleResources: {
     scss: ['~/assets/style/variables.scss', '~/assets/style/mixins.scss']
+  },
+
+  manifest: {
+    name: 'cocoico',
+    lang: 'ja',
+    short_name: 'cocoico',
+    title: 'cocoico',
+    'og:title': 'cocoico',
+    description: 'cocoicoサイトです',
+    'og:description': 'cocoicoサイトです',
+    theme_color: '#779426',
+    background_color: '#779426'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
