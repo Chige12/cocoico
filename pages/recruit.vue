@@ -39,6 +39,7 @@
                 <v-btn
                 class="ma-2"
                 dark
+                to="/chat"
                 >
                     <v-icon
                     dark

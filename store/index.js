@@ -44,6 +44,9 @@ export const actions = {
         console.log(error.code)
       })
   },
+  logout({ commit }) {
+    commit('logout')
+  },
   loginWithEmail(context, payload) {
     firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
       .then(user => {

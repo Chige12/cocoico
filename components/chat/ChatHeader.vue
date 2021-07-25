@@ -3,7 +3,7 @@
     v-container
       .chat-header-wrapper
         .back-link
-          v-btn(icon fab small )
+          v-btn(icon fab small to="/recruit")
             v-icon mdi-arrow-left
         .header-title.pl-2
           .header-title-place イオンモール高の原
